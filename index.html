@@ -9,7 +9,25 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-  	
+	
+	<style>
+	#wrapper { width: 960px; height: 520px; padding: 0; overflow: hidden; }
+	#scaled-frame { width: 1920px; height: 1040px; border: 0px; }
+	#scaled-frame {
+ 	   zoom: 0.5;
+ 	   -moz-transform: scale(0.5);
+ 	   -moz-transform-origin: 0 0;
+ 	   -o-transform: scale(0.5);
+ 	   -o-transform-origin: 0 0;
+ 	   -webkit-transform: scale(0.5);
+ 	   -webkit-transform-origin: 0 0;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+	 #scaled-frame  { zoom: 1;  }
+	}
+	</style>
+	
 	<title>3D Folding Panel</title>
 </head>
 <body>
@@ -41,8 +59,8 @@
 
 			<li class="cd-item">
 				<a class="dark-text" href="item-3.html">
-					<div>
-<iframe src="https://www.yr.no/place/Norway/Tr%C3%B8ndelag/Trondheim/Trondheim/external_box_hour_by_hour.html" width="850" height="320" scrolling="no"></iframe>
+					<div id="wrapper">
+<iframe id="scaled-frame" src="https://www.yr.no/place/Norway/Tr%C3%B8ndelag/Trondheim/Trondheim/external_box_hour_by_hour.html" scrolling="no"></iframe>
 					</div>
 				</a>
 			</li>
