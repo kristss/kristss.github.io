@@ -1,0 +1,71 @@
+path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+.horizon {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.graticule {
+  stroke: #000;
+  stroke-opacity: .15;
+}
+
+.solar-path {
+  stroke: #f00;
+  stroke-width: 2px;
+}
+
+.sun circle {
+  fill: red;
+  stroke: #000;
+}
+
+.sun text {
+  text-anchor: middle;
+}
+
+.ticks--sun circle {
+  fill: red;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.ticks--sun text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.ticks line {
+  stroke: #000;
+}
+
+.ticks text {
+  text-anchor: middle;
+}
+
+.ticks--azimuth text:nth-of-type(9n + 1) {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#waiting {
+  font: 14px sans-serif;
+  position: absolute;
+  top: 540px;
+  left: 240px;
+  width: 480px;
+  margin: auto;
+  text-align: center;
+}
+
+#waiting b {
+  font-size: 24px;
+  line-height: 1.5em;
+}
