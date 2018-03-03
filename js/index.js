@@ -2,7 +2,7 @@
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height"),
-    scale = width * .45;
+    scale = width * .25;
 
 var formatTime = d3.time.format("%-I %p"),
     formatNumber = d3.format(".1f"),
