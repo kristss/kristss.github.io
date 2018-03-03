@@ -61,7 +61,7 @@ ticksAzimuth.selectAll("text")
 svg.append("g")
     .attr("class", "ticks ticks--elevation")
   .selectAll("text")
-    .data(d3.range(10, 51, 10))
+    .data(d3.range(-10, -51, 10))
   .enter().append("text")
     .each(function(d) {
       var p = projection([0, d]);
