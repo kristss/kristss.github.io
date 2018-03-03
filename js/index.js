@@ -89,7 +89,7 @@ function located(geolocation) {
       .attr("class", "sun");
 
   sun.append("circle")
-      .attr("r", 5);
+      .attr("r", 6);
 
   sun.append("text")
       .attr("class", "sun-label sun-label--azimuth")
