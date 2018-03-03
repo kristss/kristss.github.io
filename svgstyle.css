@@ -35,7 +35,7 @@ text {
 
 .ticks--sun circle {
   fill: #FFC107;
-  stroke: #fff;
+  stroke: #607D8B;
   stroke-width: 2px;
 }
 
@@ -44,7 +44,7 @@ text {
 }
 
 .ticks line {
-  stroke: #000;
+  stroke: #CFD8DC;
 }
 
 .ticks text {
