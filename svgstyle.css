@@ -9,23 +9,23 @@ text {
 }
 
 .horizon {
-  stroke: #000;
+  stroke: #CFD8DC;
   stroke-width: 1.5px;
 }
 
 .graticule {
-  stroke: #000;
+  stroke: #CFD8DC;
   stroke-opacity: .15;
 }
 
 .solar-path {
-  stroke: #f00;
+  stroke: #FBC02D;
   stroke-width: 2px;
 }
 
 .sun circle {
-  fill: red;
-  stroke: #000;
+  fill: #FFC107;
+  stroke: #FBC02D;
 }
 
 .sun text {
@@ -33,7 +33,7 @@ text {
 }
 
 .ticks--sun circle {
-  fill: red;
+  fill: #FFC107;
   stroke: #fff;
   stroke-width: 2px;
 }
