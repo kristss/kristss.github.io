@@ -157,5 +157,3 @@ function flippedStereographic(λ, φ)  {
     -k * Math.sin(φ)
   ];
 }
-
-</script>
