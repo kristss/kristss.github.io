@@ -39,14 +39,14 @@ Patterns - reusable parts of our design
 /* -------------------------------- 
 
 Header
-
+background: #000000;
 -------------------------------- */
 header {
   height: 170px;
   line-height: 170px;
   text-align: center;
-  background: #000000;
 }
+
 header h1 {
   font-size: 2.2rem;
   color: #ffffff;
