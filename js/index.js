@@ -19,7 +19,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 svg.append("path")
-    .datum(d3.geo.circle().origin([50, 90]).angle(90))
+    .datum(d3.geo.circle().origin([0, 90]).angle(45))
     .attr("class", "horizon")
     .attr("d", path);
 
