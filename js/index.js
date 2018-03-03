@@ -19,7 +19,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 svg.append("path")
-    .datum(d3.geo.circle().origin([0, 90]).angle(90))
+    .datum(d3.geo.circle().origin([50, 90]).angle(90))
     .attr("class", "horizon")
     .attr("d", path);
 
@@ -61,7 +61,7 @@ ticksAzimuth.selectAll("text")
 svg.append("g")
     .attr("class", "ticks ticks--elevation")
   .selectAll("text")
-    .data(d3.range(10, 91, 20))
+    .data(d3.range(10, 51, 10))
   .enter().append("text")
     .each(function(d) {
       var p = projection([0, d]);
