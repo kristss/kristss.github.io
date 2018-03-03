@@ -1,3 +1,4 @@
+
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height"),
@@ -63,7 +64,8 @@ svg.append("g")
     .data(d3.range(10, 91, 10))
   .enter().append("text")
     .each(function(d) {
-      var p = projection([180, d]);
+      var p = projection([0, d]);
+
       d3.select(this)
           .attr("x", p[0])
           .attr("y", p[1]);
@@ -72,11 +74,6 @@ svg.append("g")
     .text(function(d) { return d + "°"; });
 
 navigator.geolocation.getCurrentPosition(located);
-
-var slider = document.getElementById("date-slider");
-var winterSolstice = new Date(new Date().getFullYear() - 1, 11, 21);
-
-slider.value = Math.floor(moment.duration(moment().diff(moment(winterSolstice))).asDays());
 
 function located(geolocation) {
   var solar = solarCalculator([geolocation.coords.longitude, geolocation.coords.latitude]);
@@ -88,32 +85,48 @@ function located(geolocation) {
   svg.insert("path", ".sphere")
       .attr("class", "solar-path");
 
+  var sun = svg.insert("g", ".sphere")
+      .attr("class", "sun");
+
+  sun.append("circle")
+      .attr("r", 5);
+
+  sun.append("text")
+      .attr("class", "sun-label sun-label--azimuth")
+      .attr("dy", ".71em")
+      .attr("y", 10);
+
+  sun.append("text")
+      .attr("class", "sun-label sun-label--elevation")
+      .attr("dy", "1.81em")
+      .attr("y", 10);
+
   var tickSun = svg.insert("g", ".sphere")
       .attr("class", "ticks ticks--sun")
     .selectAll("g");
 
-  sliderUpdated();
-  slider.addEventListener("input", sliderUpdated);
-  slider.addEventListener("change", sliderUpdated);
+  refresh();
 
-  function sliderUpdated() {
+  setInterval(refresh, 1000);
 
-    var offset = +slider.value;
-    var date = d3.time.day.offset(winterSolstice, offset);
-    var formateDayOfYear = d3.time.format("%x");
-
-    document.getElementById("date-label").innerText = formateDayOfYear(date) + " (day " + (offset+1) + ")";
-
-    drawDate(date);
-  }
-
-  function drawDate(date) {
-    var start = d3.time.day.floor(date),
+  function refresh() {
+    var now = new Date,
+        start = d3.time.day.floor(now),
         end = d3.time.day.offset(start, 1);
 
     svg.select(".solar-path")
         .datum({type: "LineString", coordinates: d3.time.minutes(start, end).map(solar.position)})
         .attr("d", path);
+
+    sun
+        .datum(solar.position(now))
+        .attr("transform", function(d) { return "translate(" + projection(d) + ")"; });
+
+    sun.select(".sun-label--azimuth")
+        .text(function(d) { return formatAngle(d[0]) + " φ"; });
+
+    sun.select(".sun-label--elevation")
+        .text(function(d) { return formatAngle(d[1]) + " θ"; });
 
     tickSun = tickSun
       .data(d3.time.hours(start, end), function(d) { return +d; });
@@ -144,3 +157,5 @@ function flippedStereographic(λ, φ)  {
     -k * Math.sin(φ)
   ];
 }
+
+</script>
