@@ -11,7 +11,7 @@ var formatTime = d3.time.format("%-I %p"),
 var projection = d3.geo.projection(flippedStereographic)
     .scale(scale)
     .clipAngle(130)
-    .rotate([0, -90])
+    .rotate([20, -90])
     .translate([width / 2 + .5, height / 2 + .5])
     .precision(.1);
 
@@ -19,7 +19,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 svg.append("path")
-    .datum(d3.geo.circle().origin([0, 90]).angle(45))
+    .datum(d3.geo.circle().origin([0, 90]).angle(90))
     .attr("class", "horizon")
     .attr("d", path);
 
